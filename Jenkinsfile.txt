@@ -1,0 +1,30 @@
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out source code'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'if exist index.html (echo Login Application Build Successful) else (exit 1)'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing Login Application'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Login Application Ready'
+            }
+        }
+    }
+}
